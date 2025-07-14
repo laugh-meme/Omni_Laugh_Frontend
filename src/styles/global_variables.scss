@@ -1,0 +1,24 @@
+
+$color-primary: #2f9e44;
+$color-secondary: #ffd43b;
+$color-foreground: #b2f2bb;
+
+$custom-colors: (
+  "brand-primary": $color-primary,
+  "brand-secondary": $color-secondary,
+  "brand-foreground": $color-foreground,
+);
+
+
+
+
+// @import "bootstrap/scss/functions";
+// @import "bootstrap/scss/variables";
+
+// $theme-colors: map-merge(
+//   $theme-colors,      
+//   $custom-colors      
+// );
+
+// // Diğer Bootstrap modülleri
+// @import "bootstrap/scss/bootstrap"; 
