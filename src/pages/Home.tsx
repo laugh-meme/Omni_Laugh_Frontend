@@ -1,6 +1,9 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination } from 'swiper/modules'
 
+import site1 from '../assets/site1.png'
+import site2 from '../assets/site2.png'
+
 import './styles/Home.scss';
 
 import CardComp from '../components/CardComponent/CardComponent';
@@ -56,10 +59,10 @@ const Home = () => {
                             className="text-white border border-white hover:bg-white hover:text-black transition-colors duration-200 rounded-lg text-center text-xl py-2 px-4 cursor-pointer ">
                             Claim your free NFT
                         </button>
-                        <img src='../src/assets/site1.png' alt='Random' className='w-80 sm:w-100' />
+                        <img src={site1} alt='Random' className='w-80 sm:w-100' />
                     </div>
                     <div className='flex flex-col '>
-                        <img src='../src/assets/site2.png' alt='Random' className='w-80 sm:w-100 mb-6' />
+                        <img src={site2} alt='Random' className='w-80 sm:w-100 mb-6' />
                         <button
                             type="button"
                             id='stake-button'
