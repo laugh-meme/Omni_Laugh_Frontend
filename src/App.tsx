@@ -2,7 +2,6 @@ import { useAccount, useConnect, useDisconnect } from 'wagmi'
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import Home from './pages/Home';
-import Navbar from './layout/navbar/Navbar.tsx'
 import Header from './layout/header/Header.tsx'
 
 function App() {
