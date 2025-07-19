@@ -9,12 +9,7 @@ import { WagmiProvider } from 'wagmi'
 import 'swiper/css';
 import 'swiper/css/pagination';
 
-// Import Bootstrap styles
-// import "tailwindcss";
-// import 'bootstrap/scss/bootstrap.scss';
-
 // Import global styles
-import './styles/global_variables.scss'
 import './styles/global.css'
 import './styles/tailwind.css'
 
