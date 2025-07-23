@@ -4,8 +4,6 @@ import { Pagination } from 'swiper/modules'
 import site1 from '../assets/site1.png'
 import site2 from '../assets/site2.png'
 
-import './styles/Home.scss';
-
 import CardComp from '../components/CardComponent/CardComponent';
 
 const Home = () => {

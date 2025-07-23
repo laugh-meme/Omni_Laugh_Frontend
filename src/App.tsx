@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Home from './pages/Home';
 import Header from './layout/header/Header.tsx'
+
+import Home from './pages/Home';
+import NFTHub from "./pages/NFTHub.tsx";
 
 
 function App() {
@@ -31,8 +33,8 @@ function App() {
   // const { disconnect } = useDisconnect()
 
   return (
-    <div id='all' className={"bg-white overflow-y-hidden"}>
-      <div id='body' className="bg-brand-color-primary m-0.5 overflow-y-hidden">
+    <div id='all'>
+      <div id='body' className="bg-brand-color-primary overflow-y-hidden">
         <Router>
           <header >
             <Header isMobileNavOpen={isMobileNavOpen} toggleMobileNavMenu={toggleMobileNavMenu} />
@@ -40,14 +42,15 @@ function App() {
           <main className='mt-5'>
             <Routes>
               <Route path="/" element={<Home />} />
+              <Route path="nft_hub" element={<NFTHub />} />
+
             </Routes>
           </main>
           <footer>
 
           </footer>
         </Router>
-      </div>
-     
+    </div>
 {/* 
       <div>
         <h2>Account</h2>

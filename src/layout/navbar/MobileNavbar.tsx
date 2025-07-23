@@ -1,21 +1,71 @@
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import { IoIosArrowDropdown } from "react-icons/io";
+
+interface NavLink {
+	label: string,
+	link: string
+}
 
 interface NavbarP {
 	isMobileNavOpen: boolean;
+	toggleMobileNavMenu: () => void;
+	links: NavLink[];
 }
 
-const Navbar = ({isMobileNavOpen}: NavbarP) => {
+const MobileNavbar = ({ isMobileNavOpen, toggleMobileNavMenu, links }: NavbarP) => {
+	
+	const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+	const handleMenu = () => {
+		setIsMenuOpen(!isMenuOpen)
+	}
+
+	const closeAllMenus = () => {
+		toggleMobileNavMenu();
+		handleMenu();
+	}
 
 	return (
 		<div
 			className={`
-				fixed top-0 left-0 w-full h-screen bg-brand-color-primary z-40
+				fixed mt-10 top-0 left-0 w-full h-screen bg-brand-color-primary z-40
 				transform transition-transform duration-300 ease-in-out
 				${isMobileNavOpen ? "translate-x-0" : "-translate-x-full"}
-				sm:hidden
+				sm:hidden 
 			`}
 		>
-			<div className="flex flex-col mt-35 text-white text-shadow-lg">
-				<span className="text-lg font-bold">The SocialFi Injector</span>
+			<div
+				onClick={handleMenu}
+				className="flex justify-between items-center bg-gray-900 text-brand-color-secondary px-5 py-3 mt-27 cursor-pointer"
+			>
+				<span className="text-base font-semibold">{isMenuOpen ? 'Close' : 'Open'} Menu</span>
+				<IoIosArrowDropdown
+					className={`transition-transform duration-300 ${isMenuOpen ? 'rotate-0' : 'rotate-180'}`}
+				/>
+			</div>
+
+			<nav
+				className={`
+					overflow-hidden bg-brand-color-foreground text-black px-4
+					transition-all duration-500 ease-in-out
+					rounded-b-3xl shadow
+					${isMenuOpen ? 'max-h-[300px] py-4' : 'max-h-0 py-0'}
+				`}
+			>
+				<ul className="flex flex-col gap-3">
+					{links.map((l, idx) => (
+						<li key={idx} >
+							<Link onClick={() => closeAllMenus()} to={l.link} className="block px-2 py-2 rounded-md border" >
+								{l.label}
+							</Link>
+						</li>
+					))}	
+				</ul>
+			</nav>
+			
+			<div className="flex flex-col mt-5 text-white text-shadow-lg">
+				<span className="text-lg font-bold text-center">The SocialFi Injector</span>
 				<div className="flex flex-col bg-teal-700 mx-2 border-brand-color-foreground py-3 px-3 rounded-md border-7 border-b border-r">
 					<div className="flex flex-row justify-between">
 						<div className="w-55 flex justify-center items-center">
@@ -77,7 +127,7 @@ const Navbar = ({isMobileNavOpen}: NavbarP) => {
 				</div>
 
 				<div className="flex justify-center mt-5 px-5">
-					<div className="min-w-fit w-full text-nowrap py-3 px-2 bg-brand-color-foreground text-black text-sm rounded-lg">
+					<div className="min-w-fit w-full text-nowrap text-center py-3 px-2 bg-brand-color-foreground text-black text-sm rounded-lg">
 							Top web3/cryptocurrency news/crypto ads
 					</div>
 				</div>
@@ -86,4 +136,4 @@ const Navbar = ({isMobileNavOpen}: NavbarP) => {
 	);
 }
 
-export default Navbar;
+export default MobileNavbar;
