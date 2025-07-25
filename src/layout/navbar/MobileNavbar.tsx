@@ -47,7 +47,7 @@ const MobileNavbar = ({ isMobileNavOpen, toggleMobileNavMenu, links }: NavbarP) 
 
 			<nav
 				className={`
-					overflow-hidden bg-brand-color-foreground text-black px-4
+					overflow-hidden bg-brand-color-foreground text-black px-4 overflow-y-auto
 					transition-all duration-500 ease-in-out
 					rounded-b-3xl shadow
 					${isMenuOpen ? 'max-h-[300px] py-4' : 'max-h-0 py-0'}
@@ -64,7 +64,7 @@ const MobileNavbar = ({ isMobileNavOpen, toggleMobileNavMenu, links }: NavbarP) 
 				</ul>
 			</nav>
 			
-			<div className="flex flex-col mt-5 text-white text-shadow-lg">
+			<div className="flex flex-col mt-5 text-white text-shadow-lg overflow-y-auto">
 				<span className="text-lg font-bold text-center">The SocialFi Injector</span>
 				<div className="flex flex-col bg-teal-700 mx-2 border-brand-color-foreground py-3 px-3 rounded-md border-7 border-b border-r">
 					<div className="flex flex-row justify-between">

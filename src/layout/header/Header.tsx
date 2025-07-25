@@ -12,10 +12,14 @@ interface NavbarP {
 }
 
 const links = [
-	{ label: 'Home', link: '/'},
-	{ label: 'NFT Hub', link: 'nft_hub' },
-	{ label: 'Profile', link: 'profile' },
-	{ label: 'Settings', link: 'settings' },
+    { label: 'Home', link: '/' },
+    { label: 'DEX', link: '#' },
+    { label: 'DLUP', link: '#' },
+    { label: 'NFT Hub', link: 'nft_hub' },
+    { label: 'VIPDAO', link: '#' },
+    { label: 'Social Mining', link: '#' },
+    { label: 'Profile', link: 'profile' },
+    { label: 'Settings', link: 'settings' },
 ]
 
 const Header = ({isMobileNavOpen, toggleMobileNavMenu}: NavbarP) => {
