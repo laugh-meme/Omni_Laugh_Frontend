@@ -32,7 +32,7 @@ const wagmiAdapter = new WagmiAdapter({
 // 5. Create modal
 createAppKit({
   adapters: [wagmiAdapter],
-  networks,
+  networks: wagmiAdapter.networks as any,
   defaultNetwork: zetachain,
   projectId,
   metadata,
@@ -53,7 +53,7 @@ import './styles/global.css'
 import './styles/tailwind.css'
 
 import App from './App.tsx'
-import { config } from './wagmi.ts'
+// import { config } from './wagmi.ts'
 
 (globalThis as any).Buffer = Buffer
 
@@ -61,7 +61,7 @@ const queryClient = new QueryClient()
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <WagmiProvider config={wagmiAdapter.wagmiConfig}>
+    <WagmiProvider config={wagmiAdapter.wagmiConfig as any}>
       <QueryClientProvider client={queryClient}>
         <App />
       </QueryClientProvider>
