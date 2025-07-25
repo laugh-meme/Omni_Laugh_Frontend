@@ -2,6 +2,8 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { IoIosArrowDropdown } from "react-icons/io";
 
+import { useAppKit, useAppKitAccount, useDisconnect } from "@reown/appkit/react";
+
 interface NavLink {
 	label: string,
 	link: string
@@ -14,9 +16,11 @@ interface NavbarP {
 }
 
 const MobileNavbar = ({ isMobileNavOpen, toggleMobileNavMenu, links }: NavbarP) => {
-	
-	const [isMenuOpen, setIsMenuOpen] = useState(false);
+	const { open } = useAppKit();
+	const { isConnected } = useAppKitAccount();
+	const { disconnect } = useDisconnect();
 
+	const [isMenuOpen, setIsMenuOpen] = useState(false);
 	const handleMenu = () => {
 		setIsMenuOpen(!isMenuOpen)
 	}
@@ -35,6 +39,7 @@ const MobileNavbar = ({ isMobileNavOpen, toggleMobileNavMenu, links }: NavbarP) 
 				sm:hidden 
 			`}
 		>
+			{/* menu */}
 			<div
 				onClick={handleMenu}
 				className="flex justify-between items-center bg-gray-900 text-brand-color-secondary px-5 py-3 mt-27 cursor-pointer"
@@ -64,6 +69,7 @@ const MobileNavbar = ({ isMobileNavOpen, toggleMobileNavMenu, links }: NavbarP) 
 				</ul>
 			</nav>
 			
+			{/* Wallet */}
 			<div className="flex flex-col mt-5 text-white text-shadow-lg overflow-y-auto">
 				<span className="text-lg font-bold text-center">The SocialFi Injector</span>
 				<div className="flex flex-col bg-teal-700 mx-2 border-brand-color-foreground py-3 px-3 rounded-md border-7 border-b border-r">
@@ -72,8 +78,13 @@ const MobileNavbar = ({ isMobileNavOpen, toggleMobileNavMenu, links }: NavbarP) 
 							<span className="text-sm font-bold ">Social mining...</span>
 						</div>
 						<div className="w-45 flex flex-col items-center justify-center">
-							<button className="w-full py-2 px-2 mb-3 bg-gray-950 border border-white rounded-md text-xs font-bold cursor-pointer">CONNECT WALLET</button>
-							<button className="w-full py-2 px-2 bg-blue-300 border border-blue-400 rounded-md text-xs font-bold cursor-pointer">Select Social Media</button>
+							{!isConnected ? (
+								<button className="w-full py-2 px-2 mb-3 bg-gray-950 border border-white rounded-md text-xs font-bold cursor-pointer" onClick={() => open()}>CONNECT WALLET</button>
+								
+							): (
+								<button className="w-full py-2 px-2 mb-3 bg-gray-950 border border-white rounded-md text-xs font-bold cursor-pointer" onClick={() => disconnect()}>DISCONNECT</button>
+							) }
+							<button className="w-full py-2 px-2 bg-blue-300 border border-blue-400 rounded-md text-xs font-bold cursor-pointer">Select Social. Media</button>
 						</div>
 					</div>
 
