@@ -20,7 +20,7 @@ const metadata = {
 }
 
 // 3. Set the networks
-const networks = [zetachain, zetachainAthensTestnet]
+const networks = [zetachain, zetachainAthensTestnet] as any
 
 // 4. Create Wagmi Adapter
 const wagmiAdapter = new WagmiAdapter({
@@ -32,7 +32,7 @@ const wagmiAdapter = new WagmiAdapter({
 // 5. Create modal
 createAppKit({
   adapters: [wagmiAdapter],
-  networks: wagmiAdapter.networks as any,
+  networks,
   defaultNetwork: zetachain,
   projectId,
   metadata,

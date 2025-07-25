@@ -26,7 +26,6 @@ const links = [
 
 const Header = ({ isMobileNavOpen, toggleMobileNavMenu }: NavbarP) => {
 	const { isConnected } = useAppKitAccount();
-	
 
 	return (
 		<>
