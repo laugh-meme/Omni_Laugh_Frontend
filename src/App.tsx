@@ -5,6 +5,9 @@ import Header from './layout/header/Header.tsx'
 
 import Home from './pages/Home';
 import NFTHub from "./pages/NFTHub.tsx";
+import DEX from "./pages/DEX.tsx";
+import Settings from "./pages/Settings.tsx";
+import Profile from "./pages/Profile.tsx";
 
 
 function App() {
@@ -43,7 +46,9 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="nft_hub" element={<NFTHub />} />
-
+              <Route path="dex" element={<DEX />} />
+              <Route path="profile" element={<Profile/>} />
+              <Route path="settings" element={<Settings/>} />
             </Routes>
           </main>
           <footer>

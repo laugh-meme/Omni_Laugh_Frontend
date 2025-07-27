@@ -15,7 +15,7 @@ const NFTHub = () => {
     return (
 
 
-        <div className="flex flex-col justify-center items-center px-0 sm:px-10" >
+        <section className="flex flex-col justify-center items-center px-1 sm:px-10" >
             <h1 className="text-3xl text-brand-color-secondary font-bold mb-5">NFT HUB</h1>
             <div className="w-full py-10 px-2 flex flex-col justify-around border-2 border-teal-500 bg-teal-700 rounded-xl">
                 <div className="flex justify-center"></div>
@@ -35,7 +35,7 @@ const NFTHub = () => {
                 </div>
             </div>
             
-        </div>            
+        </section>            
     )
 }
 

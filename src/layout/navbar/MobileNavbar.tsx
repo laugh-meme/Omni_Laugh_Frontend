@@ -44,7 +44,7 @@ const MobileNavbar = ({ isMobileNavOpen, toggleMobileNavMenu, links }: NavbarP) 
 				onClick={handleMenu}
 				className="flex justify-between items-center bg-gray-900 text-brand-color-secondary px-5 py-3 mt-27 cursor-pointer"
 			>
-				<span className="text-base font-semibold">{isMenuOpen ? 'Close' : 'Open'} Menu</span>
+				<span className="text-base font-semibold select-none">{isMenuOpen ? 'Close' : 'Open'} Menu</span>
 				<IoIosArrowDropdown
 					className={`transition-transform duration-300 ${isMenuOpen ? 'rotate-0' : 'rotate-180'}`}
 				/>

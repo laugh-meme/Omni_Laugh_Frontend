@@ -15,7 +15,7 @@ interface NavbarP {
 
 const links = [
     { label: 'Home', link: '/' },
-    { label: 'DEX', link: '#' },
+    { label: 'DEX', link: 'dex' },
     { label: 'DLUP', link: '#' },
     { label: 'NFT Hub', link: 'nft_hub' },
     { label: 'VIPDAO', link: '#' },
