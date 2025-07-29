@@ -40,9 +40,9 @@ const DEX = () => {
             <div className="relative bg-teal-700 border-4 border-r-0 border-b-0 border-brand-color-foreground backdrop-blur-lg rounded-3xl shadow-2xl w-full max-w-xl py-3 px-6 ">
                 
                 {/* Logo */}
-                <div className="absolute -top-10 left-1/2 transform -translate-x-1/2">
+                {/* <div className="absolute -top-10 left-1/2 transform -translate-x-1/2">
                     <img className='w-18' src={TanoshiSwap} alt='Tanoshi Swap Logo' />
-                </div>
+                </div> */}
 
                 {/* Menu */}
                 <div className='w-full flex gap-4 pt-6 pb-6 text-white '>

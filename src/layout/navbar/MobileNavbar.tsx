@@ -4,6 +4,8 @@ import { IoIosArrowDropdown } from "react-icons/io";
 
 import { useAppKit, useAppKitAccount, useDisconnect } from "@reown/appkit/react";
 
+import thumbs from "../../assets/thumbs.png";
+
 interface NavLink {
 	label: string,
 	link: string
@@ -36,10 +38,10 @@ const MobileNavbar = ({ isMobileNavOpen, toggleMobileNavMenu, links }: NavbarP) 
 				fixed mt-10 top-0 left-0 w-full h-screen bg-brand-color-primary z-40
 				transform transition-transform duration-300 ease-in-out
 				${isMobileNavOpen ? "translate-x-0" : "-translate-x-full"}
-				sm:hidden 
+				sm:hidden
 			`}
 		>
-			{/* menu */}
+			{/* Menu button */}
 			<div
 				onClick={handleMenu}
 				className="flex justify-between items-center bg-gray-900 text-brand-color-secondary px-5 py-3 mt-27 cursor-pointer"
@@ -50,6 +52,7 @@ const MobileNavbar = ({ isMobileNavOpen, toggleMobileNavMenu, links }: NavbarP) 
 				/>
 			</div>
 
+			{/* Menu */}
 			<nav
 				className={`
 					overflow-hidden bg-brand-color-foreground text-black px-4 overflow-y-auto
@@ -65,12 +68,73 @@ const MobileNavbar = ({ isMobileNavOpen, toggleMobileNavMenu, links }: NavbarP) 
 								{l.label}
 							</Link>
 						</li>
-					))}	
+					))}
 				</ul>
 			</nav>
-			
+
 			{/* Wallet */}
 			<div className="flex flex-col mt-5 text-white text-shadow-lg overflow-y-auto">
+				<img className="w-18 mx-auto mb-3" src={thumbs} />
+				<div className="grid grid-cols-2 gap-2 text-sm px-3 font-semibold mb-3">
+					<button className="px-3 py-2 border-2 border-brand-color-secondary rounded-xl text-shadow-lg cursor-pointer">Social Mining</button>
+					<button className="px-3 py-2 border border-brand-color-fourth rounded-xl text-shadow-sm cursor-pointer">SocialFi Injector</button>
+				</div>
+
+				<div className="flex flex-col bg-teal-700 mx-2 border-brand-color-foreground py-3 px-3 rounded-md border-7 border-b border-r">
+
+					{/*Wallet & Social Connection & Activity Box */}
+					<div className="flex gap-x-3 mb-3">
+						<div className="w-1/2 p-1 text-center border border-white rounded-lg text-xs font-semibold text-shadow-lg">
+							Activity Box for recently claimed $LMAO tokens and other important informations
+						</div>
+						<div className="w-1/2 flex flex-col gap-2">
+							{!isConnected ? (
+								<button className="py-2 px-2 bg-gray-950 border border-white rounded-md text-xs font-bold cursor-pointer text-shadow-lg" onClick={() => open()}>CONNECT WALLET</button>
+							): (
+								<button className="py-2 px-2 bg-gray-950 border border-white rounded-md text-xs font-bold cursor-pointer text-shadow-lg" onClick={() => disconnect()}>DISCONNECT</button>
+							) }
+
+							<button className="w-full py-2 px-2  border border-brand-color-fourth rounded-md text-xs font-bold cursor-pointer text-shadow-lg">Select Social. Media</button>
+						</div>
+					</div>
+
+					{/* Verification  */}
+					<div className="flex flex-col gap-2 justify-center">
+						<div className="flex gap-1 justify-center items-stretch">
+							<input className="w-2/3 px-3 py-2 border-2 border-brand-color-fourth rounded-xl text-center text-xs text-shadow-lg" placeholder="Input @lmao_bot reply link" />
+							<span className="w-1/3 flex items-center justify-center px-1 bg-brand-color-foreground border-brand-color-fourth border text-brand-color-primary text-sm font-semibold rounded-xl">VERIFIED</span>
+						</div>
+						<div className="flex gap-1 justify-center">
+							<button className="w-2/3 px-3 py-2 border-2 border-brand-color-fourth rounded-xl text-center text-xs text-white/50 text-shadow-lg cursor-pointer">Authenticate X/Twitter</button>
+							<span className="w-1/3 flex items-center justify-center px-1 bg-brand-color-foreground border-brand-color-fourth border text-brand-color-primary text-sm font-semibold rounded-xl">VERIFIED</span>
+						</div>
+					</div>
+
+					<div className="flex justify-center items-center mt-5">
+						<button className="py-1 px-1 border-t-6 border-l-6 border-b-2 border-r-2 text-brand-color-fourth rounded-lg mr-2 font-bold cursor-pointer">Claim 5,000 LMAO</button>
+						<button className="min-w-fit py-1 px-3 border border-brand-color-fourth text-sm  rounded-lg ml-2 cursor-pointer">Reject</button>
+					</div>
+
+					<div className="flex flex-col items-center justify-center mt-5">
+						<span className="text-xl text-brand-color-secondary font-bold mb-3">$LMAO</span>
+						<div className="w-full flex justify-center gap-12">
+							<button className="px-3 py-1 text font-bold border-2 border-brand-color-secondary rounded-xl cursor-pointer">Stake</button>
+							<button className="px-3 py-1 text font-bold border-1 border-brand-color-fourth rounded-xl cursor-pointer">Swap</button>
+						</div>
+					</div>
+				</div>
+
+
+
+				<div className="flex justify-center mt-5 px-5">
+					<div className="min-w-fit w-full text-nowrap text-center py-3 px-2 text-brand-color-fourth border font-bold text-sm rounded-lg">
+							Top web3/cryptocurrency news/crypto ads
+					</div>
+				</div>
+			</div>
+			
+
+			{/* <div className="flex flex-col mt-5 text-white text-shadow-lg overflow-y-auto">
 				<span className="text-lg font-bold text-center">The SocialFi Injector</span>
 				<div className="flex flex-col bg-teal-700 mx-2 border-brand-color-foreground py-3 px-3 rounded-md border-7 border-b border-r">
 					<div className="flex flex-row justify-between">
@@ -80,7 +144,7 @@ const MobileNavbar = ({ isMobileNavOpen, toggleMobileNavMenu, links }: NavbarP) 
 						<div className="w-45 flex flex-col items-center justify-center">
 							{!isConnected ? (
 								<button className="w-full py-2 px-2 mb-3 bg-gray-950 border border-white rounded-md text-xs font-bold cursor-pointer" onClick={() => open()}>CONNECT WALLET</button>
-								
+
 							): (
 								<button className="w-full py-2 px-2 mb-3 bg-gray-950 border border-white rounded-md text-xs font-bold cursor-pointer" onClick={() => disconnect()}>DISCONNECT</button>
 							) }
@@ -115,7 +179,7 @@ const MobileNavbar = ({ isMobileNavOpen, toggleMobileNavMenu, links }: NavbarP) 
 				</div>
 
 				<div className="flex justify-center mt-5">
-					<button 
+					<button
 						className="w-1/2 py-1 px-1 text-brand-color-secondary rounded-lg mr-2 font-bold cursor-pointer"
 						// Tailwind did not work on borders I don't know why
 						style={{
@@ -142,7 +206,7 @@ const MobileNavbar = ({ isMobileNavOpen, toggleMobileNavMenu, links }: NavbarP) 
 							Top web3/cryptocurrency news/crypto ads
 					</div>
 				</div>
-			</div>
+			</div> */}
 		</div>
 	);
 }
