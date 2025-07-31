@@ -1,17 +1,20 @@
 import { useState, useEffect } from "react";
 
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, useNavigate } from "react-router-dom";
 import Header from './layout/header/Header.tsx'
 
+import Login from "./pages/Login.tsx";
 import Home from './pages/Home';
 import NFTHub from "./pages/NFTHub.tsx";
 import DEX from "./pages/DEX.tsx";
 import Settings from "./pages/Settings.tsx";
 import Profile from "./pages/Profile.tsx";
+import { useAppKit, useAppKitAccount } from "@reown/appkit/react";
+import Connection from "./pages/Connection.tsx";
 
 
 function App() {
-
+  const { isConnected } = useAppKitAccount();
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
 
 	const toggleMobileNavMenu = () => {
@@ -31,30 +34,46 @@ function App() {
     };
   }, [isMobileNavOpen]);
 
-  // const account = useAccount()
-  // const { connectors, connect, status, error } = useConnect()
-  // const { disconnect } = useDisconnect()
+
+
+
+
+
+  const [connected, setConnected] = useState(false);
 
   return (
     <div id='all'>
       <div id='body' className="bg-brand-color-primary overflow-y-hidden">
         <Router>
-          <header >
-            <Header isMobileNavOpen={isMobileNavOpen} toggleMobileNavMenu={toggleMobileNavMenu} />
-          </header>
-          <main className='mt-5'>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="nft_hub" element={<NFTHub />} />
-              <Route path="dex" element={<DEX />} />
-              <Route path="profile" element={<Profile/>} />
-              <Route path="settings" element={<Settings/>} />
-            </Routes>
-          </main>
-          <footer>
+        {isConnected || connected ? (
+          <>
+            <header >
+              <Header isMobileNavOpen={isMobileNavOpen} toggleMobileNavMenu={toggleMobileNavMenu} />
+            </header>
+            <main className='mt-5'>
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="nft_hub" element={<NFTHub />} />
+                <Route path="dex" element={<DEX />} />
+                <Route path="profile" element={<Profile/>} />
+                <Route path="settings" element={<Settings/>} />
+                <Route path="*" element={<Home/>} />
+              </Routes>
+            </main>
+            <footer>
 
-          </footer>
+            </footer>
+          </>
+        ) : (
+          <Routes>
+            <Route path="/" element={<Login />}></Route>
+            <Route path="*" element={<Login/>} />
+            <Route path="connect" element={<Connection />}></Route>
+          </Routes>
+        )}
         </Router>
+
+        
     </div>
 {/* 
       <div>
