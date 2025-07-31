@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import LMAO_logo from '../assets/thumbs.png';
 import ZETA_logo from '../assets/zeta_logo.jpg';
-import TanoshiSwap from '../assets/TanoshiSwap.png';
 
 type Token = {
     symbol: string;
