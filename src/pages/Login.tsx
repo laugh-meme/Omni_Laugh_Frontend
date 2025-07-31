@@ -1,6 +1,4 @@
-import { useState, useEffect } from 'react';
 
-import { useAppKit, useAppKitAccount } from '@reown/appkit/react';
 
 import TitleHeaderComp from '../components/TitleHeaderComp/TitleHeaderComp';
 import TitleDescriptionComp from '../components/TitleDescriptionComponent/TitleDescriptionComponent';
