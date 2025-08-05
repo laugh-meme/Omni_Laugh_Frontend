@@ -1,11 +1,14 @@
-import DrawnerComp from '../components/DrawnerComponent/DrawnerComponent';
-import DrawnerButtonComp from '../components/DrawnerComponent/DrawnerButton';
-import DrawnerInputComp from '../components/DrawnerComponent/DrawnerInput';
 
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useAppKit, useAppKitAccount } from '@reown/appkit/react';
+import { useEffect } from 'react';
+
+import DrawnerComp from '../components/DrawnerComponents/DrawnerComponent';
+import DrawnerButtonComp from '../components/DrawnerComponents/DrawnerButton';
+import DrawnerInputComp from '../components/DrawnerComponents/DrawnerInput';
 
 import { IoArrowBackCircleOutline } from "react-icons/io5";
-import { useAppKit } from '@reown/appkit/react';
+
 
 
 const Connection = () => {
@@ -13,7 +16,7 @@ const Connection = () => {
     const { open } = useAppKit()
 
     return (
-        <section className="min-h-screen  px-2 py-10 pb-2 md:px-15 lg:px-20 xl:px-50 flex flex-col items-center justify-center border-white/50 text-white/50">
+        <section className="min-h-screen  px-2 py-10 pb-2 md:px-15 lg:px-20 xl:px-50 flex flex-col items-center justify-center border-white/50 text-white/50 bg-gradient-to-br from-brand-color-primary to-teal-700">
             <div className='w-full flex justify-start mb-2'>
                 <Link to={'/'} className=''><span className='text-brand-color-secondary text-lg lg:text-2xl'><IoArrowBackCircleOutline /></span></Link>
             </div>

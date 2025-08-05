@@ -1,17 +1,20 @@
 import { useState } from "react";
+import { useAppKit, useAppKitAccount, useDisconnect } from "@reown/appkit/react";
+
 import { Link } from "react-router-dom";
 import { IoIosArrowDropdown } from "react-icons/io";
 
-import { useAppKit, useAppKitAccount, useDisconnect } from "@reown/appkit/react";
 
-import thumbs from "../../assets/thumbs.png";
 
-interface NavLink {
+import thumbs from "../../../assets/thumbs.png";
+import Logo from "../LogoComponent/Logo";
+
+type NavLink = {
 	label: string,
 	link: string
 }
 
-interface NavbarP {
+type NavbarP = {
 	isMobileNavOpen: boolean;
 	toggleMobileNavMenu: () => void;
 	links: NavLink[];
@@ -35,16 +38,18 @@ const MobileNavbar = ({ isMobileNavOpen, toggleMobileNavMenu, links }: NavbarP) 
 	return (
 		<div
 			className={`
-				fixed mt-10 top-0 left-0 w-full h-screen bg-brand-color-primary z-40
+				fixed mt-8 top-0 left-0 w-full h-screen bg-brand-color-primary z-40
 				transform transition-transform duration-300 ease-in-out
 				${isMobileNavOpen ? "translate-x-0" : "-translate-x-full"}
 				sm:hidden
 			`}
 		>
+			<Logo />
+
 			{/* Menu button */}
 			<div
 				onClick={handleMenu}
-				className="flex justify-between items-center bg-gray-900 text-brand-color-secondary px-5 py-3 mt-27 cursor-pointer"
+				className="flex justify-between items-center bg-gray-900 text-brand-color-secondary px-5 py-3 mt-5 cursor-pointer"
 			>
 				<span className="text-base font-semibold select-none">{isMenuOpen ? 'Close' : 'Open'} Menu</span>
 				<IoIosArrowDropdown

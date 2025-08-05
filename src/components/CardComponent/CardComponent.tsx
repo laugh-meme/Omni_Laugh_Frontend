@@ -1,8 +1,8 @@
-interface CardProps {
+interface CardP {
     title: string;
 }
 
-const CardComp = (props: CardProps) => {
+const CardComp = (props: CardP) => {
     return (
         <>
             <div className="flex flex-col my-3 py-22 text-center bg-brand-color-primary shadow-sm rounded-lg">

@@ -1,7 +1,7 @@
 import { useState} from "react";
 
-import DrawnerComp from '../components/DrawnerComponent/DrawnerComponent';
-import DrawnerButtonComp from '../components/DrawnerComponent/DrawnerButton';
+import DrawnerComp from '../components/DrawnerComponents/DrawnerComponent';
+import DrawnerButtonComp from '../components/DrawnerComponents/DrawnerButton';
 
 import { FaRegHandPointLeft, FaRegHandPointRight } from "react-icons/fa";
 import laugh2 from '../assets/laugh2.png'

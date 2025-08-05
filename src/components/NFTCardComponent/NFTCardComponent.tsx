@@ -1,5 +1,5 @@
 
-interface NFTCardProps {
+interface NFTCardP {
     img: string;
     imgAlt: string;
     name: string;
@@ -14,7 +14,7 @@ const NFTCardComp = ({
     attribute,
     attribute2
 
-}: NFTCardProps) => {
+}: NFTCardP) => {
 
     return (
         <div className="border border-b-0 border-r-0 border-black rounded-t-xl rounded-b-sm ">

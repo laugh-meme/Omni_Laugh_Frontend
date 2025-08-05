@@ -1,6 +1,6 @@
-import DrawnerComp from '../components/DrawnerComponent/DrawnerComponent';
-import DrawnerButtonComp from '../components/DrawnerComponent/DrawnerButton';
-import DrawnerInputComp from '../components/DrawnerComponent/DrawnerInput';
+import DrawnerComp from '../components/DrawnerComponents/DrawnerComponent';
+import DrawnerButtonComp from '../components/DrawnerComponents/DrawnerButton';
+import DrawnerInputComp from '../components/DrawnerComponents/DrawnerInput';
 
 import laugh from '../assets/laugh.png';
 

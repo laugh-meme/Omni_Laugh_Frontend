@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 
-type DrawnerButtonProps = {
+type DrawnerButtonP = {
     text: string;
     style?: React.CSSProperties;
     className?: string;
@@ -14,7 +14,7 @@ const DrawnerButtonComp = ({
     className = '',
     onClickFn = () => {},
     to = ''
-}: DrawnerButtonProps) => {
+}: DrawnerButtonP) => {
     const navigate = useNavigate();
 
     const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {

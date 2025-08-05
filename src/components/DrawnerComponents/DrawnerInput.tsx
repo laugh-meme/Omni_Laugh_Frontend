@@ -1,5 +1,5 @@
 
-type DrawnerInputProps = {
+type DrawnerInputP = {
     text: string;
     style?: React.CSSProperties;
     className?: string;
@@ -11,7 +11,7 @@ const DrawnerInputComp = ({
     style = {},
     className = '',
     onChangeFn = () => {},
-}: DrawnerInputProps) => {
+}: DrawnerInputP) => {
 
     return (
         <input  

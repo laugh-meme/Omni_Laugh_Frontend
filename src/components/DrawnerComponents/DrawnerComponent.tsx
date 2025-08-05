@@ -1,12 +1,12 @@
 import { ReactNode, useState } from "react";
 
-type DrawnerProps = {
+type DrawnerP = {
     children: ReactNode;
-    className: string;
+    className?: string;
     btnText: string;
 };
 
-const DrawnerComp = ({ children, className = '', btnText }: DrawnerProps) => {
+const DrawnerComp = ({ children, className = '', btnText }: DrawnerP) => {
     const [openDrawner, setOpenDrawner] = useState(false);
 
     return (
@@ -17,7 +17,6 @@ const DrawnerComp = ({ children, className = '', btnText }: DrawnerProps) => {
 
             <div className={`transition-all duration-500 ease-in-out overflow-hidden origin-left ${openDrawner ? 'opacity-100 pl-0' : 'opacity-0 pl-0'}`}
             style={{minHeight: 'inherit', height: 'inherit', width: openDrawner ? '66.6666%' : '0px', transition: 'width 0.5s ease-in-out, opacity 0.5s ease-in-out'}}>
-
                 <div 
                 style={{ minHeight: 'inherit', height: 'inherit' }} 
                 className="w-full text-nowrap flex items-center gap-2 px-2 lg:px-5 py-2 overflow-x-auto border border-l-0 border-brand-color-secondary rounded-xl rounded-l-none">

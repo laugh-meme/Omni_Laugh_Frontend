@@ -1,7 +1,10 @@
-import { useState, useEffect } from "react";
 
+import { useState } from "react";
+import { useAppKitAccount } from "@reown/appkit/react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Header from './layout/header/Header.tsx'
+
+import HeaderComp from "./components/HeaderComponents/HeaderComponent.tsx";
+
 
 import Login from "./pages/Login.tsx";
 import Home from './pages/Home';
@@ -9,8 +12,9 @@ import NFTHub from "./pages/NFTHub.tsx";
 import DEX from "./pages/DEX.tsx";
 import Settings from "./pages/Settings.tsx";
 import Profile from "./pages/Profile.tsx";
-import { useAppKitAccount } from "@reown/appkit/react";
 import Connection from "./pages/Connection.tsx";
+import Tokenomics from "./pages/Tokenomics.tsx";
+
 
 
 function App() {
@@ -21,24 +25,6 @@ function App() {
     setIsMobileNavOpen(!isMobileNavOpen);
 	};
 
-  // Cancell scroll if isMobileNavOpen true.
-  useEffect(() => {
-    if (isMobileNavOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'auto';
-    }
-
-    return () => {
-      document.body.style.overflow = 'auto';
-    };
-  }, [isMobileNavOpen]);
-
-
-
-
-
-
   const [connected] = useState(false);
 
   return (
@@ -47,17 +33,21 @@ function App() {
         <Router>
         {isConnected || connected ? (
           <>
-            <header >
-              <Header isMobileNavOpen={isMobileNavOpen} toggleMobileNavMenu={toggleMobileNavMenu} />
-            </header>
+            <HeaderComp isMobileNavOpen={isMobileNavOpen} toggleMobileNavMenu={toggleMobileNavMenu} />
             <main className='mt-5'>
               <Routes>
                 <Route path="/" element={<Home />} />
+                <Route path="*" element={<Home/>} />
+
+                <Route path="login" element={<Login toggleMobileNavMenu={toggleMobileNavMenu}/>}></Route>
+                <Route path="tokenomics" element={<Tokenomics />}></Route>
+
+
                 <Route path="nft_hub" element={<NFTHub />} />
                 <Route path="dex" element={<DEX />} />
                 <Route path="profile" element={<Profile/>} />
                 <Route path="settings" element={<Settings/>} />
-                <Route path="*" element={<Home/>} />
+
               </Routes>
             </main>
             <footer>
@@ -65,11 +55,14 @@ function App() {
             </footer>
           </>
         ) : (
-          <Routes>
-            <Route path="/" element={<Login />}></Route>
-            <Route path="*" element={<Login/>} />
-            <Route path="connect" element={<Connection />}></Route>
-          </Routes>
+          <main>
+            <Routes>
+                <Route path="/" element={<Login toggleMobileNavMenu={toggleMobileNavMenu}/>}></Route>
+                <Route path="*" element={<Login toggleMobileNavMenu={toggleMobileNavMenu}/>} />
+                <Route path="tokenomics" element={<Tokenomics />}></Route>
+                <Route path="connect" element={<Connection />}></Route>
+            </Routes>
+          </main>
         )}
         </Router>
 
