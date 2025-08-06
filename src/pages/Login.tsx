@@ -1,5 +1,5 @@
 import { useAppKitAccount } from '@reown/appkit/react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { showInfo, showWarning } from '../utils/toastMsg';
 
 
