@@ -56,7 +56,7 @@ const AccordionComp = ({ children, accordionText, index, currentIndex, setCurren
             ${isOpened ? `px-4 py-12 min-h-[${height ? height : 'min-h-[700px]'}] opacity-100` : 'min-h-[0px] p-0 opacity-0'}
             
             `}> 
-                <button onClick={() =>  setCurrentIndex(-1)} className="absolute right-3 top-3 text-3xl cursor-pointer"><IoIosCloseCircleOutline /></button>
+                <button onClick={() =>  setCurrentIndex(-1)} className="absolute right-3 top-3 text-3xl cursor-pointer hover:text-brand-color-fourth transition duration-300"><IoIosCloseCircleOutline /></button>
                 <div className={`${!isOpened && 'hidden' }`}>
                     {children}
                 </div>

@@ -1,4 +1,6 @@
 import { useEffect, useRef, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+
 import AccordionComp from "../components/AccordionComponents/AccordionComponent";
 
 import ImportantNote from "../components/TokenomicsPageContentComponents/ImportantNote";
@@ -11,6 +13,8 @@ import FanLaunchTokenAllocation from "../components/TokenomicsPageContentCompone
 import DexAllocation from "../components/TokenomicsPageContentComponents/DexAllocation";
 import LMAOTokenBurn from "../components/TokenomicsPageContentComponents/LMAOTokenBurn";
 import BurnSummarySpeculation from "../components/TokenomicsPageContentComponents/BurnSummarySpeculation";
+import { useAppKitAccount } from "@reown/appkit/react";
+import { IoArrowBackCircleOutline } from "react-icons/io5";
 
 
 type Data = {
@@ -33,6 +37,9 @@ const data: Data[] = [
 
 
 const Tokenomics = () => {
+
+    const navigate = useNavigate();
+    const { isConnected } = useAppKitAccount();
 
     const [contentHeight, setContentHeight] = useState('0px');
     const [previousIndex, setPreviousIndex] = useState<number>(0);
@@ -60,7 +67,12 @@ const Tokenomics = () => {
 
     return (
         <section className="flex flex-col min-h-screen bg-gradient-to-br from-brand-color-primary to-teal-700 py-8 ">
+
+            <div className='w-full flex justify-start mb-2'>
+            </div>
+
             <div className="relative flex flex-col items-center text-3xl text-brand-color-secondary font-bold">
+                <Link to={`${isConnected ? '/login' : '/'}`} className=''><span className='absolute top-20 left-5 lg:left-20 2xl:left-50 text-brand-color-secondary text-3xl lg:text-4xl'><IoArrowBackCircleOutline /></span></Link>
                 <span>$LMAO</span>
                 <span>TOKENOMICS</span>
                 <span className="text-lg text-brand-color-fourth">[Testnet]</span>
@@ -94,7 +106,7 @@ const Tokenomics = () => {
                             setIsTimeOut(false)
                         }, 400)
                     }
-                    }} className={` ${!data.find((_, i) => i == previousIndex)?.accordionText && 'opacity-0'} px-3 py-2 bg-brand-color-secondary border text-black rounded-xl cursor-pointer`}>{data.find((_, i) => i == previousIndex)?.accordionText}</button>
+                    }} className={` ${!data.find((_, i) => i == previousIndex)?.accordionText && 'opacity-0'} px-3 py-2 bg-brand-color-secondary border text-black text-sm sm:text-lg rounded-xl  cursor-pointer`}>{data.find((_, i) => i == previousIndex)?.accordionText}</button>
                 <button onClick={() => {
                     setCurrentIndex(nextIndex)
                     if (currentIndex >= 0) {
@@ -103,7 +115,7 @@ const Tokenomics = () => {
                             setIsTimeOut(false)
                         }, 400)
                     }
-                    }} className={` ${!data.find((_, i) => i !== 0 && i == nextIndex)?.accordionText && 'opacity-0'} px-3 py-2 bg-brand-color-secondary border text-black rounded-xl cursor-pointer`}>{data.find((_, i) => i !== 0 && i == nextIndex)?.accordionText}</button>
+                    }} className={` ${!data.find((_, i) => i !== 0 && i == nextIndex)?.accordionText && 'opacity-0'} px-3 py-2 bg-brand-color-secondary border text-black text-sm sm:text-lg rounded-xl  cursor-pointer`}>{data.find((_, i) => i !== 0 && i == nextIndex)?.accordionText}</button>
             </div>
         </section>
     )
