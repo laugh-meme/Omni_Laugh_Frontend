@@ -38,7 +38,6 @@ const data: Data[] = [
 
 const Tokenomics = () => {
 
-    const navigate = useNavigate();
     const { isConnected } = useAppKitAccount();
 
     const [contentHeight, setContentHeight] = useState('0px');
