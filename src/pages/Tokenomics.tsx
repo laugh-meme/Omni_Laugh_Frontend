@@ -78,7 +78,7 @@ const Tokenomics = () => {
             </div>
             <div ref={content} className="relative h-[700px] lg:h-[700px] lg:mx-20 2xl:mx-50 mt-10 mx-3 mb-0 pt-10 pb-5 px-2 md:px-15 lg:px-30 2xl:px-50  border rounded-xl border-brand-color-fourth text-brand-color-fourth  ">
                 <span className="absolute -top-5 left-1/4 backdrop-blur-3xl py-2 w-1/2 text-center sm:text-xl lg:text-2xl border rounded-lg font-bold z-1">{currentIndex >= 0 ? data[currentIndex].accordionText : 'Select an Article'}</span>
-                <div className="flex flex-col justify-between gap-5 h-full overflow-y-auto">
+                <div className="flex flex-col justify-between gap-5 h-full overflow-y-scroll">
                     {data.map((item, i) => (
                     <AccordionComp
                         key={i}
@@ -105,7 +105,7 @@ const Tokenomics = () => {
                             setIsTimeOut(false)
                         }, 400)
                     }
-                    }} className={` ${!data.find((_, i) => i == previousIndex)?.accordionText && 'opacity-0'} px-3 py-2 bg-brand-color-secondary border text-black text-sm sm:text-lg rounded-xl  cursor-pointer`}>{data.find((_, i) => i == previousIndex)?.accordionText}</button>
+                    }} className={` ${!data.find((_, i) => i == previousIndex)?.accordionText && 'opacity-0'} px-2 sm:px-3 py-2 bg-brand-color-secondary border text-black text-sm sm:text-lg rounded-xl  cursor-pointer`}>{data.find((_, i) => i == previousIndex)?.accordionText}</button>
                 <button onClick={() => {
                     setCurrentIndex(nextIndex)
                     if (currentIndex >= 0) {
@@ -114,7 +114,7 @@ const Tokenomics = () => {
                             setIsTimeOut(false)
                         }, 400)
                     }
-                    }} className={` ${!data.find((_, i) => i !== 0 && i == nextIndex)?.accordionText && 'opacity-0'} px-3 py-2 bg-brand-color-secondary border text-black text-sm sm:text-lg rounded-xl  cursor-pointer`}>{data.find((_, i) => i !== 0 && i == nextIndex)?.accordionText}</button>
+                    }} className={` ${!data.find((_, i) => i !== 0 && i == nextIndex)?.accordionText && 'opacity-0'} px-2 sm:px-3 py-2 bg-brand-color-secondary border text-black text-sm sm:text-lg rounded-xl  cursor-pointer`}>{data.find((_, i) => i !== 0 && i == nextIndex)?.accordionText}</button>
             </div>
         </section>
     )
