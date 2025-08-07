@@ -53,7 +53,7 @@ const AccordionComp = ({ children, accordionText, index, currentIndex, setCurren
             <div 
             className={` absolute top-0 left-0 w-full backdrop-blur-3xl border border-brand-color-fourth rounded-xl
             'transition-all duration-400 ease overflow-y-auto max-h-[${height}]
-            ${isOpened ? `px-4 py-12 min-h-[${height ? height : 'min-h-[700px]'}] opacity-100` : 'min-h-[0px] p-0 opacity-0'}
+            ${isOpened ? `px-4 py-12 h-[${height ? height : 'h-[100px]'}] opacity-100` : 'h-[0px] p-0 opacity-0'}
             
             `}> 
                 <button onClick={() =>  setCurrentIndex(-1)} className="absolute right-3 top-3 text-3xl cursor-pointer hover:text-brand-color-fourth transition duration-300"><IoIosCloseCircleOutline /></button>
