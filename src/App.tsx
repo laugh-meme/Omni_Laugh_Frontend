@@ -14,6 +14,7 @@ import Settings from "./pages/Settings.tsx";
 import Profile from "./pages/Profile.tsx";
 import Connection from "./pages/Connection.tsx";
 import Tokenomics from "./pages/Tokenomics.tsx";
+import { Slide, ToastContainer } from "react-toastify";
 
 
 
@@ -30,6 +31,20 @@ function App() {
   return (
     <div id='all'>
       <div id='body' className="bg-brand-color-primary overflow-y-hidden">
+        <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick={false}
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+        transition={Slide}
+        />
+
         <Router>
         {isConnected || connected ? (
           <>
