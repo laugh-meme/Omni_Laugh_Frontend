@@ -11,7 +11,6 @@ import { IoArrowBackCircleOutline } from "react-icons/io5";
 
 
 const Connection = () => {
-
     const { open } = useAppKit()
 
     return (

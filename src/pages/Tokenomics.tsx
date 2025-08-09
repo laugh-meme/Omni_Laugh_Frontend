@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { useAppKitAccount } from "@reown/appkit/react";
 import { Link } from "react-router-dom";
 
 import AccordionComp from "../components/AccordionComponents/AccordionComponent";
@@ -13,7 +14,7 @@ import FanLaunchTokenAllocation from "../components/TokenomicsPageContentCompone
 import DexAllocation from "../components/TokenomicsPageContentComponents/DexAllocation";
 import LMAOTokenBurn from "../components/TokenomicsPageContentComponents/LMAOTokenBurn";
 import BurnSummarySpeculation from "../components/TokenomicsPageContentComponents/BurnSummarySpeculation";
-import { useAppKitAccount } from "@reown/appkit/react";
+
 import { IoArrowBackCircleOutline } from "react-icons/io5";
 
 
@@ -35,7 +36,6 @@ const data: Data[] = [
     { accordionText: "Burn Sum/Spec", content: <BurnSummarySpeculation /> }
 ];
 
-
 const Tokenomics = () => {
 
     const { isConnected } = useAppKitAccount();
@@ -50,7 +50,6 @@ const Tokenomics = () => {
 
     useEffect(() => {
         const height = content.current?.offsetHeight
-        console.log(height)
         if (height) {
             setContentHeight(`${height}px`);
         }
@@ -60,15 +59,13 @@ const Tokenomics = () => {
         if (currentIndex >= 0) {
             setPreviousIndex(currentIndex  - 1);
             setNextIndex(currentIndex + 1);
-            console.log(previousIndex, currentIndex, nextIndex);
         }
     }, [currentIndex])
 
     return (
         <section className="flex flex-col min-h-screen bg-gradient-to-br from-brand-color-primary to-teal-700 py-8 ">
 
-            <div className='w-full flex justify-start mb-2'>
-            </div>
+
 
             <div className="relative flex flex-col items-center text-3xl text-brand-color-secondary font-bold">
                 <Link to={`${isConnected ? '/login' : '/'}`} className=''><span className='absolute top-20 left-5 lg:left-20 2xl:left-50 text-brand-color-secondary text-3xl lg:text-4xl'><IoArrowBackCircleOutline /></span></Link>
@@ -76,9 +73,11 @@ const Tokenomics = () => {
                 <span>TOKENOMICS</span>
                 <span className="text-lg text-brand-color-fourth">[Testnet]</span>
             </div>
-            <div ref={content} className="relative h-[700px] lg:h-[700px] lg:mx-20 2xl:mx-50 mt-10 mx-3 mb-0 pt-10 pb-5 px-2 md:px-15 lg:px-30 2xl:px-50  border rounded-xl border-brand-color-fourth text-brand-color-fourth  ">
+            <div>
+            <div ref={content} className=" relative h-[700px] lg:mx-20 2xl:mx-50 mt-10 mx-3 mb-0 pt-10 pb-5 px-2 md:px-15 lg:px-30 2xl:px-50  border rounded-xl border-brand-color-fourth text-brand-color-fourth  ">
+
                 <span className="absolute -top-5 left-1/4 backdrop-blur-3xl py-2 w-1/2 text-center sm:text-xl lg:text-2xl border rounded-lg font-bold z-1">{currentIndex >= 0 ? data[currentIndex].accordionText : 'Select an Article'}</span>
-                <div className="flex flex-col justify-between gap-5 h-full overflow-y-scroll">
+                <div className="flex flex-col justify-between gap-5 h-full overflow-y-scroll px-2">
                     {data.map((item, i) => (
                     <AccordionComp
                         key={i}
@@ -115,6 +114,8 @@ const Tokenomics = () => {
                         }, 400)
                     }
                     }} className={` ${!data.find((_, i) => i !== 0 && i == nextIndex)?.accordionText && 'opacity-0'} px-2 sm:px-3 py-2 bg-brand-color-secondary border text-black text-sm sm:text-lg rounded-xl  cursor-pointer`}>{data.find((_, i) => i !== 0 && i == nextIndex)?.accordionText}</button>
+            </div>
+
             </div>
         </section>
     )

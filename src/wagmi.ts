@@ -1,9 +1,9 @@
 import { http, createConfig } from 'wagmi'
-import { zetachain } from 'wagmi/chains'
+import { zetachain, zetachainAthensTestnet } from 'wagmi/chains'
 import { coinbaseWallet, injected, walletConnect } from 'wagmi/connectors'
 
 export const config = createConfig({
-  chains: [zetachain],
+  chains: [zetachain, zetachainAthensTestnet],
   connectors: [
     injected(),
     coinbaseWallet(),
@@ -11,6 +11,8 @@ export const config = createConfig({
   ],
   transports: {
     [zetachain.id]: http(),
+    [zetachainAthensTestnet.id]: http(),
+
   },
 })
 

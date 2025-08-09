@@ -19,7 +19,6 @@ const AccordionComp = ({ children, accordionText, index, currentIndex, setCurren
     
 
     useEffect(() => {
-        console.log(index, accordionText)
         if (currentIndex === index) {
             if (isTimeOut) {
                 setTimeout(() => {

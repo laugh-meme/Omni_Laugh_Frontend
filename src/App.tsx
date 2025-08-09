@@ -15,6 +15,7 @@ import Profile from "./pages/Profile.tsx";
 import Connection from "./pages/Connection.tsx";
 import Tokenomics from "./pages/Tokenomics.tsx";
 import { Slide, ToastContainer } from "react-toastify";
+import Test from "./pages/Test.tsx";
 
 
 
@@ -54,15 +55,16 @@ function App() {
                 <Route path="/" element={<Home />} />
                 <Route path="*" element={<Home/>} />
 
-                <Route path="login" element={<Login toggleMobileNavMenu={toggleMobileNavMenu}/>}></Route>
-                <Route path="tokenomics" element={<Tokenomics />}></Route>
+                <Route path="/login" element={<Login toggleMobileNavMenu={toggleMobileNavMenu}/>}></Route>
+                <Route path="/tokenomics" element={<Tokenomics />}></Route>
 
 
-                <Route path="nft_hub" element={<NFTHub />} />
-                <Route path="dex" element={<DEX />} />
-                <Route path="profile" element={<Profile/>} />
-                <Route path="settings" element={<Settings/>} />
+                <Route path="/nft_hub" element={<NFTHub />} />
+                <Route path="/dex" element={<DEX />} />
+                <Route path="/profile" element={<Profile/>} />
+                <Route path="/settings" element={<Settings/>} />
 
+                <Route path="/test" element={<Test />} />
               </Routes>
             </main>
             <footer>
@@ -74,8 +76,8 @@ function App() {
             <Routes>
                 <Route path="/" element={<Login toggleMobileNavMenu={toggleMobileNavMenu}/>}></Route>
                 <Route path="*" element={<Login toggleMobileNavMenu={toggleMobileNavMenu}/>} />
-                <Route path="tokenomics" element={<Tokenomics />}></Route>
-                <Route path="connect" element={<Connection />}></Route>
+                <Route path="/tokenomics" element={<Tokenomics />}></Route>
+                <Route path="/connect" element={<Connection />}></Route>
             </Routes>
           </main>
         )}

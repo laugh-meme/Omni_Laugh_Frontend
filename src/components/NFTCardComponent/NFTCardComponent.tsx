@@ -1,5 +1,5 @@
 
-interface NFTCardP {
+type NFTCardP = {
     img: string;
     imgAlt: string;
     name: string;
