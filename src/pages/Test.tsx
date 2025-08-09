@@ -5,6 +5,9 @@
 
 
 const Test = () => {
+    return (
+        <></>
+    )
 //     const client = useClient();
 //     const firstBlockNumber = BigInt(parseInt('0xacb4dc', 16));
 //     const latestBlockNumber = BigInt(parseInt('0xb18523', 16));
