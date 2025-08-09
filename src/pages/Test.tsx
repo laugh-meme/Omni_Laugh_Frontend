@@ -4,7 +4,7 @@
 // import { getLogs } from "viem/actions";
 
 
-// const Test = () => {
+const Test = () => {
 //     const client = useClient();
 //     const firstBlockNumber = BigInt(parseInt('0xacb4dc', 16));
 //     const latestBlockNumber = BigInt(parseInt('0xb18523', 16));
@@ -70,9 +70,9 @@
 //             <h1>sa</h1>
 //         </>
 //     )
-// };
+};
 
 
 
 
-// export default Test;
+export default Test;
