@@ -7,7 +7,7 @@ type ParagraphP = {
 
 
 const ParagraphComp = ({ children }: ParagraphP)  => {
-    return <p className="text-lg sm:text-xl mt-5">{children}</p>
+    return <p className="text-lg sm:text-2xl mt-5">{children}</p>
 }
 
 export default ParagraphComp;

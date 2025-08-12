@@ -5,7 +5,7 @@ type Title2P = {
 };
 
 const TitleComp2 = ({ children } : Title2P)  => {
-    return <h2 className="sm:text-xl md:text-2xl font-bold mt-5">{children}</h2>
+    return <h2 className="text-lg sm:text-xl md:text-2xl font-bold mt-5">{children}</h2>
 
 }
 

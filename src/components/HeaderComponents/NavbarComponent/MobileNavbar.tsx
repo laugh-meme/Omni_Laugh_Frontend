@@ -8,6 +8,9 @@ import { IoIosArrowDropdown } from "react-icons/io";
 
 import thumbs from "../../../assets/thumbs.png";
 import Logo from "../LogoComponent/Logo";
+import TitleHeaderComp from "../../TitleHeaderComp/TitleHeaderComp";
+import TitleDescriptionComp from "../../TitleDescriptionComponent/TitleDescriptionComponent";
+import SloganComp from "../../SloganComponent/SloganComp";
 
 type NavLink = {
 	label: string,
@@ -44,7 +47,13 @@ const MobileNavbar = ({ isMobileNavOpen, toggleMobileNavMenu, links }: NavbarP) 
 				sm:hidden
 			`}
 		>
-			<Logo />
+
+			{/* Logo */}
+			<div className="flex flex-col text-center pt-5">
+				<TitleHeaderComp/>
+				<TitleDescriptionComp/>
+				<SloganComp/>
+			</div>	
 
 			{/* Menu button */}
 			<div

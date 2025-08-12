@@ -43,7 +43,7 @@ const AccordionComp = ({ children, accordionText, index, currentIndex, setCurren
             <button 
             style={{minHeight: 'inherit'}}
             onClick={() =>  index !== undefined && index >= 0 && setCurrentIndex(index)}
-            className={`text-nowrap border rounded-xl py-2 cursor-pointer sm:text-xl transition-all duration-500 ease font-bold w-full
+            className={` border rounded-xl py-2 cursor-pointer sm:text-xl transition-all duration-500 ease font-bold w-full
             `}>
                 {accordionText}
             </button>

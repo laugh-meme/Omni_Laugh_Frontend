@@ -16,6 +16,8 @@ import LMAOTokenBurn from "../components/TokenomicsPageContentComponents/LMAOTok
 import BurnSummarySpeculation from "../components/TokenomicsPageContentComponents/BurnSummarySpeculation";
 
 import { IoArrowBackCircleOutline } from "react-icons/io5";
+import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
+
 
 
 type Data = {
@@ -64,9 +66,6 @@ const Tokenomics = () => {
 
     return (
         <section className="flex flex-col min-h-screen bg-gradient-to-br from-brand-color-primary to-teal-700 py-8 ">
-
-
-
             <div className="relative flex flex-col items-center text-3xl text-brand-color-secondary font-bold">
                 <Link to={`${isConnected ? '/login' : '/'}`} className=''><span className='absolute top-20 left-5 lg:left-20 2xl:left-50 text-brand-color-secondary text-3xl lg:text-4xl'><IoArrowBackCircleOutline /></span></Link>
                 <span>$LMAO</span>
@@ -95,26 +94,29 @@ const Tokenomics = () => {
 
             </div>
 
-            <div className=" flex justify-between py-5 px-5 lg:mx-20 xl:mx-50">
-                <button onClick={() => {
-                    setCurrentIndex(previousIndex)
-                    if (currentIndex >= 0) {
-                        setIsTimeOut(true);
-                        setTimeout(() => {
-                            setIsTimeOut(false)
-                        }, 400)
-                    }
-                    }} className={` ${!data.find((_, i) => i == previousIndex)?.accordionText && 'opacity-0'} px-2 sm:px-3 py-2 bg-brand-color-secondary border text-black text-sm sm:text-lg rounded-xl  cursor-pointer`}>{data.find((_, i) => i == previousIndex)?.accordionText}</button>
-                <button onClick={() => {
-                    setCurrentIndex(nextIndex)
-                    if (currentIndex >= 0) {
-                        setIsTimeOut(true);
-                        setTimeout(() => {
-                            setIsTimeOut(false)
-                        }, 400)
-                    }
-                    }} className={` ${!data.find((_, i) => i !== 0 && i == nextIndex)?.accordionText && 'opacity-0'} px-2 sm:px-3 py-2 bg-brand-color-secondary border text-black text-sm sm:text-lg rounded-xl  cursor-pointer`}>{data.find((_, i) => i !== 0 && i == nextIndex)?.accordionText}</button>
-            </div>
+                <div className=" flex justify-between py-5 px-5 lg:mx-20 xl:mx-50">
+                    <button onClick={() => {
+                        setCurrentIndex(previousIndex)
+                        if (currentIndex >= 0) {
+                            setIsTimeOut(true);
+                            setTimeout(() => {
+                                setIsTimeOut(false)
+                            }, 400)
+                        }
+                        }} className={` ${!data.find((_, i) => i == previousIndex)?.accordionText && 'opacity-0'} 
+                        px-2 sm:px-3 py-2  bg-brand-color-secondary border text-black text-xl sm:text-2xl rounded-xl  cursor-pointer`}><FaAngleLeft /></button>
+                    
+                    <button onClick={() => {
+                        setCurrentIndex(nextIndex)
+                        if (currentIndex >= 0) {
+                            setIsTimeOut(true);
+                            setTimeout(() => {
+                                setIsTimeOut(false)
+                            }, 400)
+                        }
+                        }} className={` ${!data.find((_, i) => i !== 0 && i == nextIndex)?.accordionText && 'opacity-0'} 
+                        px-2 sm:px-3 py-2 bg-brand-color-secondary border text-black text-xl sm:text-2xl rounded-xl  cursor-pointer`}><FaAngleRight /></button>
+                </div>
 
             </div>
         </section>

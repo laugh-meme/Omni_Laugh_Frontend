@@ -16,6 +16,7 @@ import Connection from "./pages/Connection.tsx";
 import Tokenomics from "./pages/Tokenomics.tsx";
 import { Slide, ToastContainer } from "react-toastify";
 import Test from "./pages/Test.tsx";
+import About from "./pages/About.tsx";
 
 
 
@@ -27,7 +28,6 @@ function App() {
     setIsMobileNavOpen(!isMobileNavOpen);
 	};
 
-  const [connected] = useState(false);
 
   return (
     <div id='all'>
@@ -47,7 +47,7 @@ function App() {
         />
 
         <Router>
-        {isConnected || connected ? (
+        {isConnected ? (
           <>
             <HeaderComp isMobileNavOpen={isMobileNavOpen} toggleMobileNavMenu={toggleMobileNavMenu} />
             <main className='mt-5'>
@@ -57,7 +57,7 @@ function App() {
 
                 <Route path="/login" element={<Login toggleMobileNavMenu={toggleMobileNavMenu}/>}></Route>
                 <Route path="/tokenomics" element={<Tokenomics />}></Route>
-
+                <Route path="/about" element={<About />}></Route>
 
                 <Route path="/nft_hub" element={<NFTHub />} />
                 <Route path="/dex" element={<DEX />} />
@@ -77,6 +77,7 @@ function App() {
                 <Route path="/" element={<Login toggleMobileNavMenu={toggleMobileNavMenu}/>}></Route>
                 <Route path="*" element={<Login toggleMobileNavMenu={toggleMobileNavMenu}/>} />
                 <Route path="/tokenomics" element={<Tokenomics />}></Route>
+                <Route path="/about" element={<About />}></Route>
                 <Route path="/connect" element={<Connection />}></Route>
             </Routes>
           </main>

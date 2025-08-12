@@ -34,7 +34,7 @@ const Login = ({ toggleMobileNavMenu } : loginP) => {
             
             <DrawnerComp btnText='Check out' className='mb-3' >
                 <DrawnerButtonComp to='/connect' className='min-w-[90px]' text='Connect' />
-                <DrawnerButtonComp className='min-w-[90px]' text='About Omni' />
+                <DrawnerButtonComp to='/about' className='min-w-[90px]' text='About Omni' />
                 <DrawnerButtonComp to='/tokenomics' className='min-w-[90px]' text='$LMAO Token' />
             </DrawnerComp>
 
