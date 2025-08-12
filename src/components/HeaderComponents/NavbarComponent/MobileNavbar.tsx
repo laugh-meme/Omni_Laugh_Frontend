@@ -7,7 +7,6 @@ import { IoIosArrowDropdown } from "react-icons/io";
 
 
 import thumbs from "../../../assets/thumbs.png";
-import Logo from "../LogoComponent/Logo";
 import TitleHeaderComp from "../../TitleHeaderComp/TitleHeaderComp";
 import TitleDescriptionComp from "../../TitleDescriptionComponent/TitleDescriptionComponent";
 import SloganComp from "../../SloganComponent/SloganComp";

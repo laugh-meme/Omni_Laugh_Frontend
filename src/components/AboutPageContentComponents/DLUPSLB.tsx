@@ -5,8 +5,6 @@ import ParagraphComp from "../ContentComponents/ParagraphComponent";
 import TitleComp from "../ContentComponents/TitleComponent";
 import WrapperComp from "../ContentComponents/WrapperComponent";
 
-import TanoshiSwap2 from "../../assets/TanoshiSwap2.png"
-import ImageComp from "../ContentComponents/ImageComponent";
 import TitleComp2 from "../ContentComponents/TitleComponent2";
 
 const DLUPSLB = () => {
