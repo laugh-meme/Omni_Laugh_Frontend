@@ -41,8 +41,8 @@ const DrawnerComp = ({ children, className = '', btnText }: DrawnerP) => {
                 style={{ minHeight: 'inherit', height: 'inherit' }} 
                 className="w-full text-nowrap flex items-center gap-2 px-2 lg:px-5 py-2 overflow-x-auto border border-l-0 border-brand-color-secondary rounded-xl rounded-l-none">
                     {React.Children.map(children, child =>
-                        React.isValidElement(child)
-                            ? React.cloneElement(child, { scrollX: scrollX ?? 0 }) // default 0
+                        React.isValidElement(child) && typeof child.type !== "string"
+                            ? React.cloneElement(child, { scrollX: scrollX ?? 0 })
                             : child
                     )}
                 </div>
