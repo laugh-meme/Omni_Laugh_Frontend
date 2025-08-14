@@ -28,7 +28,6 @@ const DrawnerComp = ({ children, className = '', btnText }: DrawnerP) => {
     };
     }, []);
 
-
     return (
         <div className={`flex justify-center min-h-[46px] border-white/50 text-white/50 ${className || ''}`}>
             <button onClick={() => setOpenDrawner(!openDrawner)} 

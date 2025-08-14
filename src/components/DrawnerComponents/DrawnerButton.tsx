@@ -35,7 +35,7 @@ const DrawnerButtonComp = ({
     const [subMenuOpen, setSubMenuOpen] = useState<boolean>(false);
     const buttonRef = useRef<HTMLButtonElement>(null)
     const subMenuRef = useRef<HTMLUListElement>(null)
-
+    console.log(scrollX)
     // Position handler
     useEffect(() => {
         if (!buttonRef.current || !subMenuRef.current) return;
@@ -44,7 +44,6 @@ const DrawnerButtonComp = ({
         const containerRect = buttonRef.current.offsetParent?.getBoundingClientRect();
         if (containerRect) {
             subMenuRef.current.style.left = `${rect.left - containerRect.left}px`;
-            console.log(subMenuRef.current.style.left);
         }
     }, [subMenuOpen, scrollX]);
 
