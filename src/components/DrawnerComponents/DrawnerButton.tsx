@@ -8,12 +8,10 @@ type DrawnerButtonP = {
     onClickFn?: (...params: any) => void;
     to?: string;
     subMenu?: {text: string, to: string}[];
-    scrollX?: number;
 }
 
 const DrawnerButtonComp = ({    
     text,
-    scrollX,
     style = {},
     className = '',
     onClickFn = () => {},
@@ -45,7 +43,7 @@ const DrawnerButtonComp = ({
         if (containerRect) {
             subMenuRef.current.style.left = `${rect.left - containerRect.left}px`;
         }
-    }, [subMenuOpen, scrollX]);
+    }, [subMenuOpen]);
 
     // Resize handler
     useEffect(() => {
