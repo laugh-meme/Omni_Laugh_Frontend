@@ -22,7 +22,7 @@ const Login = ({ toggleMobileNavMenu } : loginP) => {
     const navigate = useNavigate();
 
     return (
-        <section className="flex flex-col px-2 py-10 pb-2 md:px-15 lg:px-20 xl:px-50 bg-gradient-to-br from-brand-color-primary to-teal-700 z-0">
+        <section className="flex flex-col px-2 py-10 pb-15 md:pb-17 md:px-15 lg:px-20 xl:px-50 bg-gradient-to-br from-brand-color-primary to-teal-700 z-0 ">
             
             <div className="relative flex flex-col items-center mb-5">
                 <img onClick={() => navigate('/')} src={thumbs} className='w-40 absolute top-1 cursor-pointer' />
@@ -39,7 +39,7 @@ const Login = ({ toggleMobileNavMenu } : loginP) => {
             </DrawnerComp>
 
             <DrawnerComp btnText='Operations' className='' >
-                <DrawnerButtonComp onClickFn={() => !isConnected ? showWarning('Click connect to login.') : toggleMobileNavMenu()} className='min-w-[90px]' text='SocialFi' />
+                <DrawnerButtonComp  onClickFn={() => !isConnected ? showWarning('Click connect to login.') : toggleMobileNavMenu()} className='min-w-[90px]' text='SocialFi' />
                 <DrawnerButtonComp onClickFn={() => showWarning('Click connect to login.')} className='min-w-[90px]' text='Social Mining' />
                 <DrawnerButtonComp onClickFn={() => showWarning('Click connect to login.')} to={isConnected ? '/nft_hub' : ''} className='min-w-[90px]' text='NFT Hub' />
             </DrawnerComp>
@@ -67,9 +67,21 @@ const Login = ({ toggleMobileNavMenu } : loginP) => {
             </DrawnerComp>
 
             <DrawnerComp btnText='Promoters' className='mb-3' >
-                <DrawnerButtonComp className='min-w-[90px]' text='Marketer' />
-                <DrawnerButtonComp className='min-w-[90px]' text='Hyper' />
-                <DrawnerButtonComp className='min-w-[90px]' text='Influencer' />
+                <DrawnerButtonComp subMenu={[
+                    {text: 'Marketer 1', to: ''},
+                    {text: 'Marketer 2', to: ''},
+                    {text: 'Marketer 3', to: ''},
+                ]} className='min-w-[90px]' text='Marketer' />
+                <DrawnerButtonComp subMenu={[
+                    {text: 'Hyper 1', to: ''},
+                    {text: 'Hyper 2', to: ''},
+                    {text: 'Hyper 3', to: ''},
+                ]} className='min-w-[90px]' text='Hyper' />
+                <DrawnerButtonComp subMenu={[
+                    {text: 'Influencer 1', to: ''},
+                    {text: 'Influencer 2', to: ''},
+                    {text: 'Influencer 3', to: ''},
+                ]} className='min-w-[90px]' text='Influencer' />
             </DrawnerComp>
 
             <DrawnerComp btnText='Socials' className='' >
@@ -82,8 +94,16 @@ const Login = ({ toggleMobileNavMenu } : loginP) => {
 
             <div className='flex flex-col items-center gap-2 justify-center rounded-xl text-shadow-lg font-bold  '>
                 <DrawnerComp btnText='Omni_Laugh' className='w-full' >
-                    <DrawnerButtonComp className='' text='Designed by' />
-                    <DrawnerButtonComp className='' text='Built by' />
+                    <DrawnerButtonComp subMenu={[
+                    {text: 'Designer 1', to: ''},
+                    {text: 'Designer 2', to: ''},
+                    {text: 'Designer 3', to: ''},
+                ]} className='' text='Designed by' />
+                    <DrawnerButtonComp subMenu={[
+                    {text: 'Builder 1', to: ''},
+                    {text: 'Builder 2', to: ''},
+                    {text: 'Builder 3', to: ''},
+                ]} className='' text='Built by' />
                 </DrawnerComp>
                 <div className='w-full flex justify-center items-center gap-1'>
                     <span className='text-brand-color-secondary text-xs sm:text-lg'>&copy;2025</span>
