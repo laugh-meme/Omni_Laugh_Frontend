@@ -33,7 +33,6 @@ const DrawnerButtonComp = ({
     const [subMenuOpen, setSubMenuOpen] = useState<boolean>(false);
     const buttonRef = useRef<HTMLButtonElement>(null)
     const subMenuRef = useRef<HTMLUListElement>(null)
-    console.log(scrollX)
     // Position handler
     useEffect(() => {
         if (!buttonRef.current || !subMenuRef.current) return;
