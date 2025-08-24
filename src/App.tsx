@@ -16,22 +16,30 @@ import Tokenomics from "./pages/Tokenomics.tsx";
 import { Slide, ToastContainer } from "react-toastify";
 import Test from "./pages/Test.tsx";
 import About from "./pages/About.tsx";
-import { useCheckSessionAvailability } from "./hooks/api/useSession.ts";
-import { showSuccess } from "./utils/toastMsg.ts";
+import { useCheckSessionAvailability, useFetchNonce } from "./hooks/api/useSession.ts";
+import { showSuccess, showWarning } from "./utils/toastMsg.ts";
 
 function App() {
-	const { isConnected } = useAppKitAccount();
+	const { isConnected, address } = useAppKitAccount();
 	const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
 
 	const toggleMobileNavMenu = () => {
     	setIsMobileNavOpen(!isMobileNavOpen);
 	};
 
-	const {data, status} = useCheckSessionAvailability();
-
+	const {data: session, status: sessionStatus} = useCheckSessionAvailability();
+	const {data: nonce, status: nonceStatus} = useFetchNonce(address as `0x${string}` , session?.code)
 	useEffect(() => {
-		if (status === 'success') {
-			showSuccess(`Your session data is ${data?.data.data}`);
+		if (sessionStatus == 'success') {
+			if (session?.code == 'SUCCESS' ) {
+				showSuccess(`${session?.message}`);
+			} else {
+				showWarning(`${session?.message}`);
+				
+				if (nonceStatus == 'success') {
+					showSuccess(`${nonce.message} ${nonce.data}`);
+				}
+			}
 		}
 	})
 
